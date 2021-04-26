@@ -1,0 +1,25 @@
+subprojects {
+    apply plugin: 'java'
+
+    group 'me.allangame.killstreak'
+    version '0.1.0-SNAPSHOT'
+
+    jar {
+        from {
+            configurations.compile.collect {
+                it.isDirectory() ? it : zipTree(it)
+            }
+        }
+    }
+
+    repositories {
+        mavenLocal()
+        maven { url = 'https://repo.codemc.io/repository/nms/'}
+        mavenCentral()
+    }
+
+    dependencies {
+        compileOnly 'org.spigotmc:spigot:1.16.5-R0.1-SNAPSHOT'
+    }
+
+}

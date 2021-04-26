@@ -1,0 +1,10 @@
+name: KillStreak
+main: me.allangame.killstreak.KillStreak
+version: 1.0.0
+author: AllanGame
+api-version: 1.16
+
+commands:
+  streak:
+    description: "See the streak of a player"
+    usage: "streak <player> &7If you want to see your streak, just type /streak"
