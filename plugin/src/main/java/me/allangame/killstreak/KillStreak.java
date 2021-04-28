@@ -1,7 +1,9 @@
 package me.allangame.killstreak;
 
 import me.allangame.killstreak.commands.StreakCommand;
+import me.allangame.killstreak.commands.streakAdminCommand;
 import me.allangame.killstreak.listeners.PlayerDeath;
+import me.allangame.killstreak.streakmanager.Streak;
 import me.allangame.killstreak.utils.Configuration;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -14,13 +16,13 @@ public class KillStreak extends JavaPlugin {
 
     private Configuration config;
     private static KillStreak instance;
-    private static HashMap<String, Integer> StreakList = new HashMap<String, Integer>();
-
+    private static Streak StreakList;
 
     @Override
     public void onEnable() {
         instance = this;
 
+        StreakList = new Streak();
         setupCommands();
         setupConfiguration();
         setupListeners();
@@ -37,6 +39,7 @@ public class KillStreak extends JavaPlugin {
 
     private void setupCommands(){
         getCommand("streak").setExecutor(new StreakCommand());
+        getCommand("streakadmin").setExecutor(new streakAdminCommand());
     }
 
     private void setupListeners(){
@@ -44,7 +47,7 @@ public class KillStreak extends JavaPlugin {
         pluginManager.registerEvents(new PlayerDeath(), this);
     }
 
-    public static HashMap getStreakList() {
+    public static Streak getList() {
         return StreakList;
     }
 

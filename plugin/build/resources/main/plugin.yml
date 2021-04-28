@@ -8,3 +8,8 @@ commands:
   streak:
     description: "See the streak of a player"
     usage: "streak <player> &7If you want to see your streak, just type /streak"
+  streakadmin:
+    description: "manage player streaks"
+    usage: "streakadmin <option>"
+    aliases:
+      - sa

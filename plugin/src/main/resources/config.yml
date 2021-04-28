@@ -17,6 +17,7 @@ config: # dont remove this line
     other_user_streak: "&d%player% &7is on a &f%streak%&7-kill streak"
     # When an user use /streak <player> and <player> isnt found
     player_not_found: "&cPlayer \"%player%\" not found."
+    no_user_provided: "&cNo user provided."
 
     # Important:
 

@@ -1,6 +1,7 @@
 package me.allangame.killstreak.listeners;
 
 import me.allangame.killstreak.KillStreak;
+import me.allangame.killstreak.streakmanager.Streak;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -14,7 +15,7 @@ import java.util.Objects;
 public class PlayerDeath implements Listener {
 
 
-    HashMap<String, Integer> StreakList = KillStreak.getStreakList();
+    Streak StreakList = KillStreak.getList();
     KillStreak instance = KillStreak.getInstance();
 
     @EventHandler
@@ -24,22 +25,17 @@ public class PlayerDeath implements Listener {
 
         // if killer is a player
         if(killer != null) {
-            if (!StreakList.containsKey(killer.getUniqueId().toString())) {
-                StreakList.put(killer.getUniqueId().toString(), 1);
-            } else {
-                StreakList.put(killer.getUniqueId().toString(), StreakList.get(killer.getUniqueId().toString()) + 1);
-            }
-
+            StreakList.increment(killer);
             if(Objects.equals(instance.getConfig().getString("config.broadcast_when"), "MULTIPLE_OF_5")) {
-                if(StreakList.get(killer.getUniqueId().toString()) % 5 == 0) {
+                if(StreakList.getStreak(killer) % 5 == 0) {
                     Bukkit.broadcastMessage(Objects.requireNonNull(instance.getConfig().getString("config.messages.streak_broadcast"))
                             .replace("%player%", killer.getDisplayName())
-                            .replace("%streak%", StreakList.get(killer.getUniqueId().toString())+""));
+                            .replace("%streak%", StreakList.getStreak(killer)+""));
                 }
             }
         }
 
-        // restart player streak
-        StreakList.put(player.getUniqueId().toString(), 0);
+        // reset dead player streak
+        StreakList.reset(player);
     }
 }
