@@ -14,8 +14,8 @@ import java.util.Objects;
 public class PlayerDeath implements Listener {
 
 
-    Streak streakList = KillStreak.getList();
-    KillStreak instance = KillStreak.getInstance();
+    private final Streak streakList = KillStreak.getList();
+    private final KillStreak instance = KillStreak.getInstance();
 
     @EventHandler
     public void onPlayerDeath(PlayerDeathEvent e) {
