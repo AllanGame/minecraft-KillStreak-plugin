@@ -15,7 +15,7 @@ import java.util.Objects;
 public class PlayerDeath implements Listener {
 
 
-    Streak StreakList = KillStreak.getList();
+    Streak streakList = KillStreak.getList();
     KillStreak instance = KillStreak.getInstance();
 
     @EventHandler
@@ -25,17 +25,17 @@ public class PlayerDeath implements Listener {
 
         // if killer is a player
         if(killer != null) {
-            StreakList.increment(killer);
+            streakList.increment(killer);
             if(Objects.equals(instance.getConfig().getString("config.broadcast_when"), "MULTIPLE_OF_5")) {
-                if(StreakList.getStreak(killer) % 5 == 0) {
+                if(streakList.getStreak(killer) % 5 == 0) {
                     Bukkit.broadcastMessage(Objects.requireNonNull(instance.getConfig().getString("config.messages.streak_broadcast"))
                             .replace("%player%", killer.getDisplayName())
-                            .replace("%streak%", StreakList.getStreak(killer)+""));
+                            .replace("%streak%", streakList.getStreak(killer)+""));
                 }
             }
         }
 
         // reset dead player streak
-        StreakList.reset(player);
+        streakList.reset(player);
     }
 }

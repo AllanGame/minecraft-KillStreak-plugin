@@ -14,7 +14,7 @@ import java.util.Objects;
 public class StreakCommand implements CommandExecutor {
 
     KillStreak instance = KillStreak.getInstance();
-    Streak StreakList = KillStreak.getList();
+    Streak streakList = KillStreak.getList();
 
 
     @Override
@@ -33,7 +33,7 @@ public class StreakCommand implements CommandExecutor {
 
             Player player = (Player) sender;
             player.sendMessage(Objects.requireNonNull(instance.getConfig().getString("config.messages.user_streak"))
-            .replace("%streak%", StreakList.getStreak(player)+""));
+            .replace("%streak%", streakList.getStreak(player)+""));
 
         } else {
             if(!sender.hasPermission("killstreak.seeOtherPlayerStreak")) {
@@ -53,7 +53,7 @@ public class StreakCommand implements CommandExecutor {
                 target.sendMessage(
                         Objects.requireNonNull(instance.getConfig().getString("config.messages.other_user_streak"))
                         .replace("%player%", target.getDisplayName())
-                        .replace("%streak%", StreakList.getStreak(target)+"")
+                        .replace("%streak%", streakList.getStreak(target)+"")
                 );
         }
         return true;

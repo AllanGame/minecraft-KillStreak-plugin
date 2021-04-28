@@ -16,13 +16,13 @@ public class KillStreak extends JavaPlugin {
 
     private Configuration config;
     private static KillStreak instance;
-    private static Streak StreakList;
+    private static Streak streakList;
 
     @Override
     public void onEnable() {
         instance = this;
 
-        StreakList = new Streak();
+        streakList = new Streak();
         setupCommands();
         setupConfiguration();
         setupListeners();
@@ -48,7 +48,7 @@ public class KillStreak extends JavaPlugin {
     }
 
     public static Streak getList() {
-        return StreakList;
+        return streakList;
     }
 
     public FileConfiguration getConfig() {

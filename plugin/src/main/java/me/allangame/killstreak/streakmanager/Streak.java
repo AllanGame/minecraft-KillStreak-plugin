@@ -1,24 +1,23 @@
 package me.allangame.killstreak.streakmanager;
 
-import com.sun.istack.internal.NotNull;
 import org.bukkit.entity.Player;
 
 import java.util.HashMap;
 
 public class Streak {
 
-    private final HashMap<String, Integer> StreakList;
+    private final HashMap<String, Integer> streakList;
 
     public Streak() {
-        StreakList = new HashMap<String, Integer>();
+        streakList = new HashMap<String, Integer>();
     }
 
     /**
      *
-     * @return StreakList The Streak map
+     * @return streakList The Streak map
      */
-    public HashMap<String, Integer> getStreakList() {
-        return StreakList;
+    public HashMap<String, Integer> getstreakList() {
+        return streakList;
     }
 
 
@@ -27,8 +26,8 @@ public class Streak {
      * @param p The player
      * @param s The streak
      */
-    public void set(@NotNull Player p, Integer s) {
-        getStreakList().put(p.getUniqueId().toString(), s);
+    public void set(Player p, Integer s) {
+        getstreakList().put(p.getUniqueId().toString(), s);
     }
 
     /**
@@ -36,8 +35,8 @@ public class Streak {
      * @param p The player
      * @return The current streak
      */
-    public Integer getStreak(@NotNull Player p) {
-        Integer currentStreak = this.getStreakList().get(p.getUniqueId().toString());
+    public Integer getStreak(Player p) {
+        Integer currentStreak = this.getstreakList().get(p.getUniqueId().toString());
         if(currentStreak == null) {
             this.set(p, 0);
             currentStreak = 0;
@@ -49,22 +48,22 @@ public class Streak {
      *
      * @param p The Player
      */
-    public void increment(@NotNull Player p) {
-        Integer currentStreak = this.getStreakList().get(p.getUniqueId().toString());
+    public void increment(Player p) {
+        Integer currentStreak = this.getstreakList().get(p.getUniqueId().toString());
         if(currentStreak == null) {
             this.set(p, 0);
             currentStreak = 0;
         }
-        this.getStreakList().put(p.getUniqueId().toString(), currentStreak+1);
+        this.getstreakList().put(p.getUniqueId().toString(), currentStreak+1);
     }
 
     /**
      *
      * @param p The player
      */
-    public void reduce(@NotNull Player p) {
+    public void reduce(Player p) {
         if(this.getStreak(p) > 0) {
-            this.getStreakList().put(p.getUniqueId().toString(), this.getStreak(p)-1);
+            this.getstreakList().put(p.getUniqueId().toString(), this.getStreak(p)-1);
         }
     }
 
@@ -72,8 +71,8 @@ public class Streak {
      *
      * @param p The player
      */
-    public void reset(@NotNull Player p) {
-        this.getStreakList().put(p.getUniqueId().toString(), 0);
+    public void reset(Player p) {
+        this.getstreakList().put(p.getUniqueId().toString(), 0);
     }
 
 
