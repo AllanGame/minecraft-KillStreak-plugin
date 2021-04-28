@@ -16,7 +16,6 @@ public class StreakAdminCommand implements CommandExecutor {
 
     private final KillStreak instance = KillStreak.getInstance();
     private final Streak streakList = KillStreak.getList();
-    private Player target;
 
 
     @Override
@@ -49,7 +48,7 @@ public class StreakAdminCommand implements CommandExecutor {
                     return true;
                 }
 
-                target = Bukkit.getPlayer(args[1]);
+                Player target = Bukkit.getPlayer(args[1]);
                 if(target == null) {
                     sender.sendMessage(
                             Objects.requireNonNull(instance.getConfig().getString("config.messages.player_not_found"))
@@ -59,7 +58,7 @@ public class StreakAdminCommand implements CommandExecutor {
                 }
 
                 streakList.reset(target);
-                sender.sendMessage(cc("&aSuccesfully. Now &f"+target.getDisplayName()+"'s &astreak is &f0"));
+                sender.sendMessage(cc("&aSuccesfully. Now &f"+ target.getDisplayName()+"'s &astreak is &f0"));
 
             break;
             case "set":
