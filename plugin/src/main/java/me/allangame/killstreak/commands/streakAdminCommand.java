@@ -98,13 +98,11 @@ public class streakAdminCommand implements CommandExecutor {
                 streakList.set(target, newValue);
                 sender.sendMessage(cc("&aSuccessfully! \n&7Changes: &8"+previousValue + " &7--> &f"+newValue));
 
-                if(Objects.equals(instance.getConfig().getString("config.broadcast_when"), "MULTIPLE_OF_5")) {
-                    if(newValue == 0) return true;
-                    if(newValue % 5 == 0) {
+                if(newValue == 0) return true;
+                if(newValue % 5 == 0 && Objects.equals(instance.getConfig().getString("config.broadcast_when"), "MULTIPLE_OF_5")) {
                         Bukkit.broadcastMessage(Objects.requireNonNull(instance.getConfig().getString("config.messages.streak_broadcast"))
                                 .replace("%player%", target.getDisplayName())
                                 .replace("%streak%", streakList.getStreak(target)+""));
-                    }
                 }
                 break;
             default:
