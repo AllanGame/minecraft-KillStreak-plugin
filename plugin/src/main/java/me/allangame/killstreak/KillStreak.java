@@ -1,7 +1,7 @@
 package me.allangame.killstreak;
 
 import me.allangame.killstreak.commands.StreakCommand;
-import me.allangame.killstreak.commands.streakAdminCommand;
+import me.allangame.killstreak.commands.StreakAdminCommand;
 import me.allangame.killstreak.listeners.PlayerDeath;
 import me.allangame.killstreak.streakmanager.Streak;
 import me.allangame.killstreak.utils.Configuration;
@@ -38,7 +38,7 @@ public class KillStreak extends JavaPlugin {
 
     private void setupCommands(){
         getCommand("streak").setExecutor(new StreakCommand());
-        getCommand("streakadmin").setExecutor(new streakAdminCommand());
+        getCommand("streakadmin").setExecutor(new StreakAdminCommand());
     }
 
     private void setupListeners(){

@@ -12,7 +12,7 @@ import java.util.Objects;
 
 import static me.allangame.killstreak.utils.ChatColorUtils.cc;
 
-public class streakAdminCommand implements CommandExecutor {
+public class StreakAdminCommand implements CommandExecutor {
 
     private final KillStreak instance = KillStreak.getInstance();
     private final Streak streakList = KillStreak.getList();
