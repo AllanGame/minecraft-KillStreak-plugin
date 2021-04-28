@@ -22,6 +22,7 @@ public class streakAdminCommand implements CommandExecutor {
                      "&8- &fhelp: &7Show this message \n" +
                      "&8- &freset: &7Reset a player streak \n" +
                      "&8- &fset &7Define an specific streak to a player \n"+
+                     "&bVersion: 1.0.0\n"+
                      "&8----------------------------------------");
 
     @Override
