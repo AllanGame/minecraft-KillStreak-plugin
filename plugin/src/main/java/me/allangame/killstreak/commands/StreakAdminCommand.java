@@ -52,7 +52,7 @@ public class StreakAdminCommand implements CommandExecutor {
                 if(target == null) {
                     sender.sendMessage(
                             Objects.requireNonNull(instance.getConfig().getString("config.messages.player_not_found"))
-                                    .replace("%player%", target.getDisplayName())
+                                    .replace("%player%", args[1])
                     );
                     return true;
                 }
@@ -73,7 +73,7 @@ public class StreakAdminCommand implements CommandExecutor {
                 if(target == null) {
                     sender.sendMessage(
                             Objects.requireNonNull(instance.getConfig().getString("config.messages.player_not_found"))
-                                    .replace("%player%", target.getDisplayName())
+                                    .replace("%player%", args[1])
                     );
                     return true;
                 }
