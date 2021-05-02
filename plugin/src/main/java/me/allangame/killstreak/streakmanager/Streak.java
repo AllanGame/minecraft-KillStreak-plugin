@@ -16,7 +16,7 @@ public class Streak {
      *
      * @return streakList The Streak map
      */
-    public HashMap<String, Integer> getstreakList() {
+    public HashMap<String, Integer> getStreakList() {
         return streakList;
     }
 
@@ -27,7 +27,7 @@ public class Streak {
      * @param s The streak
      */
     public void set(Player p, Integer s) {
-        getstreakList().put(p.getUniqueId().toString(), s);
+        getStreakList().put(p.getUniqueId().toString(), s);
     }
 
     /**
@@ -36,7 +36,7 @@ public class Streak {
      * @return The current streak
      */
     public Integer getStreak(Player p) {
-        Integer currentStreak = this.getstreakList().get(p.getUniqueId().toString());
+        Integer currentStreak = this.getStreakList().get(p.getUniqueId().toString());
         if(currentStreak == null) {
             this.set(p, 0);
             currentStreak = 0;
@@ -49,12 +49,12 @@ public class Streak {
      * @param p The Player
      */
     public void increment(Player p) {
-        Integer currentStreak = this.getstreakList().get(p.getUniqueId().toString());
+        Integer currentStreak = this.getStreakList().get(p.getUniqueId().toString());
         if(currentStreak == null) {
             this.set(p, 0);
             currentStreak = 0;
         }
-        this.getstreakList().put(p.getUniqueId().toString(), currentStreak+1);
+        this.getStreakList().put(p.getUniqueId().toString(), currentStreak+1);
     }
 
     /**
@@ -63,7 +63,7 @@ public class Streak {
      */
     public void reduce(Player p) {
         if(this.getStreak(p) > 0) {
-            this.getstreakList().put(p.getUniqueId().toString(), this.getStreak(p)-1);
+            this.getStreakList().put(p.getUniqueId().toString(), this.getStreak(p)-1);
         }
     }
 
@@ -72,7 +72,7 @@ public class Streak {
      * @param p The player
      */
     public void reset(Player p) {
-        this.getstreakList().put(p.getUniqueId().toString(), 0);
+        this.getStreakList().put(p.getUniqueId().toString(), 0);
     }
 
 
