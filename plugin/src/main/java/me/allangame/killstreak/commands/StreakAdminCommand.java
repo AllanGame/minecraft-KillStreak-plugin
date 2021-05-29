@@ -1,13 +1,15 @@
 package me.allangame.killstreak.commands;
 
 import me.allangame.killstreak.KillStreak;
-import me.allangame.killstreak.streakmanager.Streak;
+import me.allangame.killstreak.streakmanager.StreakList;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.entity.Player;
 
+import java.io.IOException;
 import java.util.Objects;
 
 import static me.allangame.killstreak.utils.ChatColorUtils.cc;
@@ -15,7 +17,7 @@ import static me.allangame.killstreak.utils.ChatColorUtils.cc;
 public class StreakAdminCommand implements CommandExecutor {
 
     private final KillStreak instance = KillStreak.getInstance();
-    private final Streak streakList = KillStreak.getList();
+    private final StreakList streakList = KillStreak.getList();
 
 
     @Override
@@ -28,6 +30,7 @@ public class StreakAdminCommand implements CommandExecutor {
 
         String infoMessage = cc("&6==============&lKILL STREAK&6==============\n" +
                 "&8- &fhelp: &7Show this message \n" +
+                "&8- &freload: &7Reload the plugin config\n" +
                 "&8- &freset: &7Reset a player streak \n" +
                 "&8- &fset &7Define an specific streak to a player \n" +
                 "&bVersion: 1.0.1\n" +
@@ -104,6 +107,12 @@ public class StreakAdminCommand implements CommandExecutor {
                                 .replace("%streak%", streakList.getStreak(target)+""));
                 }
                 break;
+            case "reload":
+                    instance.saveConfig();
+                    instance.reloadConfig();
+                sender.sendMessage(cc("&aConfig reloaded"));
+                break;
+
             default:
                 sender.sendMessage(infoMessage);
                 break;

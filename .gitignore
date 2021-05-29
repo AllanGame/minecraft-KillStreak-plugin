@@ -4,4 +4,5 @@
 .rar
 assets
 plugin/src/test
+plugin/build
 .gradle

@@ -1,8 +1,10 @@
 name: KillStreak
 main: me.allangame.killstreak.KillStreak
-version: 1.0.1
+version: 1.0.2
 author: AllanGame
 api-version: 1.16
+
+softdepend: [PlaceholderAPI]
 
 commands:
   streak:
@@ -13,3 +15,6 @@ commands:
     usage: "streakadmin <option>"
     aliases:
       - sa
+  test:
+    description: "im just testing"
+    usage: /test

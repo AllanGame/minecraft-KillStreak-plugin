@@ -4,11 +4,11 @@ import org.bukkit.entity.Player;
 
 import java.util.HashMap;
 
-public class Streak {
+public class StreakList {
 
     private final HashMap<String, Integer> streakList;
 
-    public Streak() {
+    public StreakList() {
         streakList = new HashMap<String, Integer>();
     }
 
@@ -27,7 +27,7 @@ public class Streak {
      * @param s The streak
      */
     public void set(Player p, Integer s) {
-        getStreakList().put(p.getUniqueId().toString(), s);
+        this.getStreakList().put(p.getUniqueId().toString(), s);
     }
 
     /**

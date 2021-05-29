@@ -2,7 +2,7 @@ subprojects {
     apply plugin: 'java'
 
     group 'me.allangame.killstreak'
-    version '1.0.1-SNAPSHOT'
+    version '1.0.2'
 
     jar {
         from {
@@ -16,10 +16,13 @@ subprojects {
         mavenLocal()
         maven { url = 'https://repo.codemc.io/repository/nms/'}
         mavenCentral()
+        maven { url = 'https://repo.extendedclip.com/content/repositories/placeholderapi/' }
     }
 
     dependencies {
         compileOnly 'org.spigotmc:spigot:1.16.5-R0.1-SNAPSHOT'
+        compileOnly 'me.clip:placeholderapi:2.10.9'
+
     }
 
 }

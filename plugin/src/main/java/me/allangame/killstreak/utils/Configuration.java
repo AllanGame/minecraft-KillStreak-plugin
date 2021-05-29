@@ -98,7 +98,7 @@ public class Configuration  extends YamlConfiguration {
     public void save() {
         final File folder = this.plugin.getDataFolder();
         try {
-            this.save(new File(folder, this.fileName));
+            super.save(new File(folder, this.fileName));
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -107,6 +107,6 @@ public class Configuration  extends YamlConfiguration {
     public void reload() throws IOException, InvalidConfigurationException {
         File file = new File(folder, this.fileName);
         this.save();
-        this.load(file);
+        super.load(file);
     }
 }

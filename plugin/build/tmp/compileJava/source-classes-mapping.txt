@@ -1,14 +1,18 @@
-me/allangame/killstreak/streakmanager/Streak.java
- me.allangame.killstreak.streakmanager.Streak
+me/allangame/killstreak/utils/ChatColorUtils.java
+ me.allangame.killstreak.utils.ChatColorUtils
+me/allangame/killstreak/streakmanager/StreakList.java
+ me.allangame.killstreak.streakmanager.StreakList
 me/allangame/killstreak/commands/StreakCommand.java
  me.allangame.killstreak.commands.StreakCommand
 me/allangame/killstreak/utils/Configuration.java
  me.allangame.killstreak.utils.Configuration
-me/allangame/killstreak/utils/ChatColorUtils.java
- me.allangame.killstreak.utils.ChatColorUtils
 me/allangame/killstreak/listeners/PlayerDeath.java
  me.allangame.killstreak.listeners.PlayerDeath
-me/allangame/killstreak/commands/streakAdminCommand.java
- me.allangame.killstreak.commands.streakAdminCommand
+me/allangame/killstreak/placeholderapi/KillStreakExpansion.java
+ me.allangame.killstreak.placeholderapi.KillStreakExpansion
+me/allangame/killstreak/commands/TestCommand.java
+ me.allangame.killstreak.commands.TestCommand
 me/allangame/killstreak/KillStreak.java
  me.allangame.killstreak.KillStreak
+me/allangame/killstreak/commands/StreakAdminCommand.java
+ me.allangame.killstreak.commands.StreakAdminCommand

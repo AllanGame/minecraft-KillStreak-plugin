@@ -3,10 +3,10 @@ package me.allangame.killstreak;
 import me.allangame.killstreak.commands.StreakCommand;
 import me.allangame.killstreak.commands.StreakAdminCommand;
 import me.allangame.killstreak.listeners.PlayerDeath;
-import me.allangame.killstreak.streakmanager.Streak;
+import me.allangame.killstreak.placeholderapi.KillStreakExpansion;
+import me.allangame.killstreak.streakmanager.StreakList;
 import me.allangame.killstreak.utils.Configuration;
 import org.bukkit.Bukkit;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -15,13 +15,20 @@ public class KillStreak extends JavaPlugin {
 
     private Configuration config;
     private static KillStreak instance;
-    private static Streak streakList;
+    private static StreakList streakList;
+
 
     @Override
     public void onEnable() {
         instance = this;
 
-        streakList = new Streak();
+        streakList = new StreakList();
+        if(Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
+            new KillStreakExpansion().register();
+        } else {
+            Bukkit.getLogger().info("Placeholder is not detected, if you want to use the killstreak variables install PlaceholderAPI.");
+        }
+
         setupCommands();
         setupConfiguration();
         setupListeners();
@@ -46,11 +53,11 @@ public class KillStreak extends JavaPlugin {
         pluginManager.registerEvents(new PlayerDeath(), this);
     }
 
-    public static Streak getList() {
+    public static StreakList getList() {
         return streakList;
     }
 
-    public FileConfiguration getConfig() {
+    public Configuration getConfig() {
         return this.config;
     }
 

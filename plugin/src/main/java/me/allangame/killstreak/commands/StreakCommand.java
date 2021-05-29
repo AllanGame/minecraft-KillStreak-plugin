@@ -1,7 +1,7 @@
 package me.allangame.killstreak.commands;
 
 import me.allangame.killstreak.KillStreak;
-import me.allangame.killstreak.streakmanager.Streak;
+import me.allangame.killstreak.streakmanager.StreakList;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -14,7 +14,7 @@ import java.util.Objects;
 public class StreakCommand implements CommandExecutor {
 
     private final KillStreak instance = KillStreak.getInstance();
-    private final Streak streakList = KillStreak.getList();
+    private final StreakList streakList = KillStreak.getList();
 
 
     @Override
@@ -40,12 +40,12 @@ public class StreakCommand implements CommandExecutor {
                 sender.sendMessage(Objects.requireNonNull(instance.getConfig().getString("config.messages.no_permission")));
                 return true;
             }
-                Player target = Bukkit.getPlayer(args[1]);
+                Player target = Bukkit.getPlayer(args[0]);
 
                 if(target == null) {
                     sender.sendMessage(
                             Objects.requireNonNull(instance.getConfig().getString("config.messages.player_not_found"))
-                            .replace("%player%", args[1])
+                            .replace("%player%", args[0])
                     );
                     return true;
                 }
