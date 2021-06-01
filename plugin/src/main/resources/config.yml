@@ -1,0 +1,32 @@
+config: # dont remove this line
+
+  # When reaching a streak a broadcast will be made
+  # OPTIONS:
+  # MULTIPLE_OF_5 example: 5, 10, 15, 20, 25... [DEFAULT]
+  # NEVER never broadcast
+  broadcast_when: 'MULTIPLE_OF_5'
+  rewards:
+    enabled: false
+    default_reward:
+      message_to_killer: '&7You killed %dead_player_name%, now you are on a %killer_streak% streak! Get some cookies'
+      # A console command
+      console: 'give %killer_name% minecraft:cookies 3'
+
+  messages:
+    # When user tries to use a command and does not have permission
+    no_permission: '&cYou dont have permission to use this command.'
+    # When an user reach a streak goal
+    streak_broadcast: '&6&LSTREAK! &d%player% &fis on a &6%streak%&f-kill streak'
+    # When user use /streak command to see their streak
+    user_streak: '&7You are on a &f%streak%&7-kill streak.'
+    # When an user use /streak <player> to see other player streak
+    other_user_streak: '&d%player% &7is on a &f%streak%&7-kill streak'
+    # When an user use /streak <player> and <player> isnt found
+    player_not_found: '&cPlayer "%player%" not found.'
+    no_user_provided: '&cNo user provided.'
+
+    # Important:
+
+    # PERMISSIONS
+    # 'killstreak.streak.command' to use /streak command
+    # 'killstreak.seeOtherPlayerStreak' to allow seeing other players streaks '/streak <player>'
