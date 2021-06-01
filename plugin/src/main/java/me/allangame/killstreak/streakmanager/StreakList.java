@@ -3,20 +3,22 @@ package me.allangame.killstreak.streakmanager;
 import org.bukkit.entity.Player;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class StreakList {
 
-    private final HashMap<String, Integer> streakList;
+    private final Map<String, Integer> streakList;
 
     public StreakList() {
-        streakList = new HashMap<String, Integer>();
+        streakList = new HashMap<String, Integer>() {
+        };
     }
 
     /**
      *
      * @return streakList The Streak map
      */
-    public HashMap<String, Integer> getStreakList() {
+    public Map<String, Integer> getStreakList() {
         return streakList;
     }
 
